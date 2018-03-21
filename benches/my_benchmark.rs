@@ -14,14 +14,14 @@ fn fibonacci(n: u64) -> u64 {
 }
 
 fn criterion_benchmark(c: &mut Criterion) {
-    c.bench_function("fib 20", |b| b.iter(|| fibonacci(1)));
+    c.bench_function("fib 20", |b| b.iter(|| fibonacci(2)));
 }
 
 criterion_group! {
     name = benches;
     config = Criterion::default()
         .warm_up_time(Duration::new(3, 0))
-        .measurement_time(Duration::new(1, 00000000));
+        .measurement_time(Duration::new(1, 0));
     targets = criterion_benchmark
 }
 
