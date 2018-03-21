@@ -1,0 +1,14 @@
+[package]
+name = "bench"
+version = "0.1.0"
+authors = ["Martin Billinger <flkazemakase@gmail.com>"]
+
+[dependencies]
+
+[dev-dependencies]
+criterion = "0.2"
+
+[[bench]]
+name = "my_benchmark"
+harness = false
+
