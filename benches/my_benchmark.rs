@@ -13,8 +13,12 @@ fn fibonacci(n: u64) -> u64 {
     }
 }
 
-fn criterion_benchmark(c: &mut Criterion) {
-    c.bench_function("fib 20", |b| b.iter(|| fibonacci(2)));
+fn criterion_benchmark1(c: &mut Criterion) {
+    c.bench_function("fib 1", |b| b.iter(|| fibonacci(1)));
+}
+
+fn criterion_benchmark2(c: &mut Criterion) {
+    c.bench_function("fib 2", |b| b.iter(|| fibonacci(3)));
 }
 
 criterion_group! {
@@ -22,7 +26,7 @@ criterion_group! {
     config = Criterion::default()
         .warm_up_time(Duration::new(3, 0))
         .measurement_time(Duration::new(1, 0));
-    targets = criterion_benchmark
+    targets = criterion_benchmark1, criterion_benchmark2
 }
 
 criterion_main!(benches);
